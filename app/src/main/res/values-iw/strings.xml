@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+        <string name="app_name">MeatYou</string>
+        <string name="logo">MeatYou Logo</string>
+        <string name="slogan">לא משנה איפה אתה : גם אם אתה בבית , במשרד , או בחוף - אנחנו נגיע אלייך ונדאג לך.</string>
+        <string name="singUpBtn">הירשם</string>
+        <string name="loginBtn">כניסה להזמנה</string>
+        <string name="title_activity_home">Home</string>
+        <string name="menu_order">ביצוע הזמנה</string>
+        <string name="food_menu">תפריט</string>
+        <string name="cart">עגלה</string>
+        <string name="orders">הזמנות</string>
+        <string name="logout">התנתק</string>
+        <string name="cancel">בטל</string>
+        <string name="enterName">נא הכנס את שמך</string>
+        <string name="enterAddress">נא הכנס את הכתובת למשלוח</string>
+        <string name="enterPhone">נא הכנס מספר טלפון</string>
+        <string name="loginSuccess">התחברת בהצלחה!</string>
+        <string name="navigation_drawer_open">פתח ניווט</string>
+        <string name="navigation_drawer_close">סגור ניווט</string>
+        <string name="nav_header_title">אנדרואיד סטודיו</string>
+        <string name="nav_header_subtitle">android.studio@android.com</string>
+        <string name="nav_header_desc">נווט</string>
+        <string name="action_settings">הגדרות</string>
+        <string name="menu_you_orders">הזמנות שלך</string>
+        <string name="menu_about_us">קצת עלינו</string>
+        <string name="homeTxt">בחר את המנה שלך</string>
+        <string name="login">התחבר</string>
+
+
+        //order
+
+        <string name="withSpread">ממרחים</string>
+        <string name="noSpread">ללא ממרחים</string>
+        <string name="salsa">סלסה</string>
+        <string name="avocado">אבוקדו</string>
+        <string name="chimichurri">צימיצורי</string>
+        <string name="mayonnaise">מיונז</string>
+        <string name="tehina">טחינה</string>
+        <string name="hotSauce">סחוג</string>
+        <string name="withSalad">סלטים</string>
+        <string name="noSalad">ללא סלטים</string>
+        <string name="salad">סלט ירקות</string>
+        <string name="arabSalad">סלט ערבי</string>
+        <string name="cabbage">כרוב סגול</string>
+        <string name="Fries">ציפס</string>
+        <string name="onionRings">טבעות בצל</string>
+        <string name="rice">אורז</string>
+        <string name="extras">מחיר לתוספת : 13 ש"ח</string>
+        <string name="sauceChoice">מגיע לך 5 רטבים עלינו, כל רוטב נוסף יחויב ב 1 שקל</string>
+        <string name="language">עברית</string>
+        <string name="english_lang">אנגלית</string>
+        <string name="hebrew_lang">עברית</string>
+        <string name="steak">סטייק</string>
+        <string name="steakChoose">סטייק - מחיר(300גר) : 79ש"ח</string>
+        <string name="mince">טחון מוקפץ</string>
+        <string name="minceChoose">טחון מוקפץ - מחיר(250גר) : 55ש"ח</string>
+        <string name="lamb">צלעות טלה</string>
+        <string name="lambChoose">צלעות טלה - מחיר(300גר) : 79ש"ח</string>
+        <string name="phone_number">מספר טלפון</string>
+        <string name="name">שם</string>
+        <string name="address">כתובת להזמנה</string>
+        <string name="order_btn">הזמן</string>
+        <string name="chooseSaucesNum">בחר</string>
+        <string name="number_of_sauces">כמה רטבים תרצה?</string>
+        <string name="menuOrder">הזמן אוכל</string>
+        <string name="welcome">שלום</string>
+        <string name="ketchup">קטשופ</string>
+        <string name="chili">צ\'ילי מתוק</string>
+        <string name="no_salads">ללא סלטים</string>
+        <string name="no_spread">ללא ממרחים</string>
+        <string name="no_extras">ללא תוספות</string>
+
+
+
+        <string name="totalPrice">סה\'\'כ לתשלום :</string>
+        <string name="finishOrder">תודה שהזמנת, פרטי ההזמנה שלך נמצאים ב \'הזמנות שלי\' בתפריט, המשלוח בדרך.</string>
+        <string name="MyOrder">תודה</string>
+        <string name="thanks_for_ordering_meatyou">תודה שהזמנת Meat-You</string>
+        <string name="final_name">שם המזמין :</string>
+        <string name="final_phone_number">מספר טלפון :</string>
+        <string name="final_address">כתובת למשלוח :</string>
+        <string name="final_order_information">פרטי ההזמנה שלך</string>
+        <string name="final_typeOfFood">שם המנה :</string>
+        <string name="final_delivery_information">פרטים למשלוח</string>
+        <string name="final_spreads">ממרחים : </string>
+        <string name="final_salads">סלטים : </string>
+        <string name="final_extras">תוספות בצד : </string>
+        <string name="final_number_sauces">שקיות רטבים</string>
+        <string name="final_price">מחיר לתשלום : </string>
+        <string name="final_drinks">שתיה : </string>
+        <string name="none_ordering_meatyou">לא ביצעת הזמנה עדיין,\n גש לבצע הזמנה.</string>
+
+
+        <string name="myname">גל תגר</string>
+        <string name="meat_you_app">אפליקציית Meat-You</string>
+        <string name="about_me">מתכנת אנדרואיד  |  אפליקציות אנדרואיד,משחקים,אתרי WEB ומפתח תוכנה </string>
+        <string name="app_description">\n\nמיט-יו היא אפליקציה משלוחי בשר כשר אשר תגיע אלייך לכל מקום</string>
+        <string name="app_description2">\n\nהאפליקציה עושה שימוש בתבניות עיצוב ובספריות שונות, כל כפתור ואייקון תוכנו בקפידה רבה.</string>
+        <string name="app_description3">הסלוגן של האפליקציה הוא : \n\n</string>
+        <string name="choose_drink">בחר שתיה</string>
+        <string-array name="drinkChoose">
+                <item>ללא שתיה</item>
+                <item>קולה זירו</item>
+                <item>מים</item>
+                <item>סודה</item>
+        </string-array>
+        <string name="none">ללא שתיה </string>
+
+
+
+</resources>

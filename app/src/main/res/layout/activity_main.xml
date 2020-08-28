@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/butchery_background">
+
+    <Button android:id="@+id/btnLanguage"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:textColor="@android:color/white"
+        android:background="@drawable/singbtns"
+        android:textSize="15sp"
+        android:layout_margin="8dp"
+        android:gravity="center"
+        android:text="@string/language"
+        />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="200dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/butchery_logo"
+            android:contentDescription="@string/logo" />
+        <TextView
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@color/colorPrimaryDark"
+            android:text="@string/slogan"
+            android:id="@+id/txtSlogan"
+            android:paddingBottom="250dp"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button android:id="@+id/btnLogin"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginTop="200dp"
+            android:layout_width="0dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:background="@drawable/singbtns"
+            android:textSize="15sp"
+            android:layout_margin="8dp"
+            android:text="@string/loginBtn"/>
+
+
+
+    </LinearLayout>
+</RelativeLayout>

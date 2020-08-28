@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/overlayBackground">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/text_home"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textColor="@android:color/white"
+        android:text="@string/homeTxt"/>
+</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp">
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/steak">
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:src="@drawable/veal"
+                app:civ_border_color="@android:color/white"
+                app:civ_border_width="2dp"
+                app:civ_shadow="true"
+                android:focusable="true"
+                android:layout_gravity="center"
+                tools:ignore="NestedWeights" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/steak"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal|center_vertical" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/mince">
+            <de.hdodenhof.circleimageview.CircleImageView
+
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:src="@drawable/meat_tahun"
+                app:civ_border_color="@android:color/white"
+                app:civ_border_width="2dp"
+                app:civ_shadow="true"
+                app:civ_shadow_radius="10dp"
+                app:civ_shadow_color="#88EAEAEA"
+                android:focusable="true"
+                android:layout_gravity="center"
+                tools:ignore="NestedWeights" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mince"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:id="@+id/lamb">
+            <de.hdodenhof.circleimageview.CircleImageView
+
+                android:layout_width="120dp"
+                android:layout_height="100dp"
+                android:src="@drawable/lamb"
+                app:civ_border_color="@android:color/white"
+                app:civ_border_width="2dp"
+                app:civ_shadow="true"
+                android:focusable="true"
+                android:layout_gravity="center"
+                tools:ignore="NestedWeights" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/lamb"
+                android:textColor="@android:color/white"
+                android:gravity="center_horizontal" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:fillViewport="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:paddingBottom="15dp"
+        android:id="@+id/scrollView"
+        android:fadeScrollbars="false"
+        android:scrollbarThumbVertical="@drawable/scrollbar">
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+            android:background="@drawable/linearlayour_border">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:paddingStart="9dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="@android:color/white"
+                    android:id="@+id/foodPrice"/>
+        </LinearLayout>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/spreadRadioGroup"
+            android:layout_marginVertical="8dp">
+            <RadioButton
+                android:id="@+id/withSpread"
+                android:layout_width="wrap_content"
+                app:buttonTint="@android:color/white"
+                android:layout_height="wrap_content"
+                android:text="@string/withSpread"
+                android:textColor="@android:color/white"/>
+            <RadioButton
+                android:id="@+id/noSpread"
+                android:layout_width="wrap_content"
+                app:buttonTint="@android:color/white"
+                android:checked="true"
+                android:layout_height="wrap_content"
+                android:text="@string/noSpread"
+                android:textColor="@android:color/white"/>
+        </RadioGroup>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/spreadChipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            android:visibility="gone">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/salsaChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/salsa" />
+
+            <com.google.android.material.chip.Chip
+                android:id="@+id/hotSauceChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/hotSauce" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/tehinaChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tehina" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/avocadoChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/avocado" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/mayonnaiseChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/mayonnaise" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chimichurriChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/chimichurri"/>
+        </com.google.android.material.chip.ChipGroup>
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:id="@+id/saladRadioGroup"
+            android:layout_marginTop="20dp">
+            <RadioButton android:id="@+id/withSalad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/withSalad"
+                app:buttonTint="@android:color/white"
+                android:textColor="@android:color/white"/>
+            <RadioButton android:id="@+id/noSalad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/noSalad"
+                app:buttonTint="@android:color/white"
+                android:checked="true"
+                android:textColor="@android:color/white"/>
+        </RadioGroup>
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/saladsChipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/Theme.MaterialComponents.Light"
+            android:visibility="gone">
+            <com.google.android.material.chip.Chip
+                android:id="@+id/saladChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/salad" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/arabSaladChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/arabSalad" />
+            <com.google.android.material.chip.Chip
+                android:id="@+id/cabbageChip"
+                style="@style/Widget.MaterialComponents.Chip.Filter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/cabbage" />
+        </com.google.android.material.chip.ChipGroup>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/extras"
+                android:textColor="@android:color/white"
+                android:paddingStart="7dp"
+                android:paddingEnd="7dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/rice"
+                    android:textColor="@android:color/white"
+                    app:buttonTint="@android:color/white"
+                    android:id="@+id/riceBox"/>
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Fries"
+                    android:textColor="@android:color/white"
+                    app:buttonTint="@android:color/white"
+                    android:id="@+id/friesBox"/>
+                <com.google.android.material.checkbox.MaterialCheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/onionRings"
+                    app:buttonTint="@android:color/white"
+                    android:textColor="@android:color/white"
+                    android:id="@+id/onionRingsBox"/>
+            </LinearLayout>
+        </LinearLayout>
+            <com.skydoves.powerspinner.PowerSpinnerView
+                android:layout_marginTop="20dp"
+                android:id="@+id/drink_spinner"
+                android:layout_width="160dp"
+                android:background="@drawable/spinner"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:hint="@string/choose_drink"
+                android:padding="4dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="@android:color/white"
+                android:textSize="14.5sp"
+                app:spinner_arrow_gravity="end"
+                app:spinner_arrow_padding="8dp"
+                app:spinner_divider_color="@android:color/white"
+                app:spinner_divider_show="true"
+                app:spinner_divider_size="0.4dp"
+                app:spinner_item_array="@array/drinkChoose"
+                app:spinner_popup_animation="dropdown"
+                app:spinner_popup_background="@color/overlaySpinnerBackground"
+                app:spinner_popup_elevation="14dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sauceChoice"
+                android:textColor="@android:color/white"
+                android:paddingStart="7dp"
+                android:paddingEnd="7dp"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/sauceLayout">
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/number_of_sauces"
+                    android:textColorHint="@color/colorPrimaryDark"
+                    android:inputType="number"
+                    android:backgroundTint="@android:color/white"
+
+                    android:textColor="@android:color/white"
+                    android:importantForAutofill="no"
+                    android:id="@+id/numOfSauces"/>
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/orderLinearLayout">
+            </LinearLayout>
+        </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/orderBtnLayout">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:id="@+id/totalPriceTv"
+            android:textColor="@android:color/white"
+            android:gravity="center"
+            />
+
+        <Button android:id="@+id/btnFinishOrder"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_width="250dp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/orederbtn"
+            android:textSize="15sp"
+            android:text="@string/order_btn"/>
+
+    </LinearLayout>
+</LinearLayout>
+

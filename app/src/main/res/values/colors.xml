@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#00711A20</color>
+    <color name="colorPrimaryDark">#88EAEAEA</color>
+    <color name="colorAccent">#36EAEAEA</color>
+    <color name="softWhite">#C3EAEAEA</color>
+    <color name="overlayBackground">#7f333639</color>
+    <color name="overlaySpinnerBackground">#CB333639</color>
+    <color name="overlayActionBar">#0e0d0e</color>
+    <color name="barColors">#101112</color>
+</resources>
