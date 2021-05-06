@@ -2,7 +2,6 @@ package com.example.meatyouapp.ui.food_order;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -16,26 +15,19 @@ import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.ScrollView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.example.meatyouapp.Common.Common;
+import com.example.meatyouapp.Common.NewOrder;
 import com.example.meatyouapp.Common.LastOrder;
+import com.example.meatyouapp.Common.User;
 import com.example.meatyouapp.R;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipGroup;
 import com.skydoves.powerspinner.OnSpinnerItemSelectedListener;
 import com.skydoves.powerspinner.PowerSpinnerView;
-
-
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
     TextView totalPrice;
@@ -46,6 +38,10 @@ public class HomeFragment extends Fragment {
     RadioButton noSalad,noSpread;
     private HomeViewModel homeViewModel;
     PowerSpinnerView drinkSpinner;
+    LastOrder lastOrder=LastOrder.getLastOrder();
+    NewOrder newOrder=NewOrder.getNewOrder();
+
+
 
 
 
@@ -53,7 +49,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        Common.initCommon();
+        NewOrder.initCommon();
         final View root = inflater.inflate(R.layout.fragment_home, container, false);
         final LinearLayout steak = root.findViewById(R.id.steak);
         final LinearLayout mince = root.findViewById(R.id.mince);
@@ -96,8 +92,8 @@ public class HomeFragment extends Fragment {
                 scrollView.setVisibility(View.VISIBLE);
                 orderBtnLayout.setVisibility(View.VISIBLE);
                 foodTv.setText(getString(R.string.steakChoose));
-                Common.totalPrice+=79;
-                Common.foodChosen=getString(R.string.steak);
+                newOrder.setTotalPrice(newOrder.getTotalPrice()+79);
+                newOrder.setFoodChosen(getString(R.string.steak));
                 }
                 else {
                     mince.setVisibility(View.VISIBLE);
@@ -107,7 +103,7 @@ public class HomeFragment extends Fragment {
                     orderBtnLayout.setVisibility(View.GONE);
                     initViewsStats();
                 }
-                totalPrice.setText(getString(R.string.totalPrice)+ "" +Common.totalPrice);
+                totalPrice.setText(getString(R.string.totalPrice)+ "" + newOrder.getTotalPrice());
             }
         });
         lamb.setOnClickListener(new View.OnClickListener() {
@@ -121,8 +117,8 @@ public class HomeFragment extends Fragment {
                 scrollView.setVisibility(View.VISIBLE);
                 orderBtnLayout.setVisibility(View.VISIBLE);
                 foodTv.setText(getString(R.string.lambChoose));
-                Common.totalPrice+=79;
-                Common.foodChosen=getString(R.string.lamb);
+                newOrder.setTotalPrice(newOrder.getTotalPrice()+79);
+                    newOrder.setFoodChosen(getString(R.string.lamb));
 
                 }
                 else
@@ -134,7 +130,7 @@ public class HomeFragment extends Fragment {
                     orderBtnLayout.setVisibility(View.GONE);
                     initViewsStats();
                 }
-                totalPrice.setText(getString(R.string.totalPrice)+ "" + Common.totalPrice);
+                totalPrice.setText(getString(R.string.totalPrice)+ "" + newOrder.getTotalPrice());
 
             }
         });
@@ -149,8 +145,8 @@ public class HomeFragment extends Fragment {
                     scrollView.setVisibility(View.VISIBLE);
                     orderBtnLayout.setVisibility(View.VISIBLE);
                     foodTv.setText(getString(R.string.minceChoose));
-                    Common.totalPrice+=55;
-                    Common.foodChosen=getString(R.string.mince);
+                    newOrder.setTotalPrice(newOrder.getTotalPrice()+55);
+                    newOrder.setFoodChosen(getString(R.string.mince));
 
                 }
                 else{
@@ -161,7 +157,7 @@ public class HomeFragment extends Fragment {
                     orderBtnLayout.setVisibility(View.GONE);
                     initViewsStats();
                 }
-                totalPrice.setText(getString(R.string.totalPrice)+ "" + Common.totalPrice);
+                totalPrice.setText(getString(R.string.totalPrice)+ "" + newOrder.getTotalPrice());
             }
         });
 
@@ -173,12 +169,12 @@ public class HomeFragment extends Fragment {
                     case R.id.withSpread: {
                         spreadChipGroup.setVisibility(View.VISIBLE);
                         spreadChipGroup.setSelectionRequired(true);
-                        Common.isSpread=true;
+                        newOrder.setIsSpread(true);
                         break;}
                     case R.id.noSpread:{
                         spreadChipGroup.setVisibility(View.GONE);
                         spreadChipGroup.setSelectionRequired(false);
-                        Common.isSpread=false;
+                        newOrder.setIsSpread(false);
                         break;
                     }
 
@@ -194,12 +190,12 @@ public class HomeFragment extends Fragment {
                     case R.id.withSalad: {
                         saladChipGroup.setVisibility(View.VISIBLE);
                         saladChipGroup.setSelectionRequired(true);
-                        Common.isSalad=true;
+                        newOrder.setIsSalad(true);
                         break;}
                     case R.id.noSalad:{
                         saladChipGroup.setVisibility(View.GONE);
                         saladChipGroup.setSelectionRequired(false);
-                        Common.isSalad=false;
+                        newOrder.setIsSalad(false);
                         break;
                     }
 
@@ -226,10 +222,10 @@ public class HomeFragment extends Fragment {
             public void afterTextChanged(Editable editable) {
                 int num;
                 String numOfSauce = editTextNumOfSauces.getText().toString();
-                if (Common.isClicked) {
+                if (newOrder.getIsClicked()) {
                     linearLayout.removeAllViews();
-                    if (Common.numOfLastSauce >5)
-                        Common.totalPrice-=(Common.numOfLastSauce -5);
+                    if (newOrder.getNumOfLastSauce() >5)
+                        newOrder.setTotalPrice(newOrder.getTotalPrice()-newOrder.getNumOfLastSauce() -5);
                 }
                 try {
                     num = Integer.parseInt(numOfSauce);
@@ -241,14 +237,14 @@ public class HomeFragment extends Fragment {
                         LayoutInflater sauceInflater = LayoutInflater.from(getActivity());
                         final LinearLayout layout = (LinearLayout) sauceInflater.inflate(R.layout.sauce_radio_group, null, false);
                         linearLayout.addView(layout);
-                        Common.isSauce = true;
+                        newOrder.setisSauce(true);
                     }
                 }
                 if (num>5)
-                    Common.totalPrice+=(num-5);
-                Common.numOfLastSauce =num;
-                Common.isClicked=true;
-                totalPrice.setText(getString(R.string.totalPrice)+ "" + Common.totalPrice);
+                    newOrder.setTotalPrice(newOrder.getTotalPrice()+num-5);
+                newOrder.setNumOfLastSauce(num);
+                newOrder.setIsClicked(true);
+                totalPrice.setText(getString(R.string.totalPrice)+ "" + newOrder.getTotalPrice());
             }
         });
         btnFinishOrder.setOnClickListener(new View.OnClickListener() {
@@ -258,14 +254,14 @@ public class HomeFragment extends Fragment {
                 saveOrderDetails();
                 moveAllDetails();
                 getFragmentManager().beginTransaction().detach(HomeFragment.this).attach(HomeFragment.this).commit();
-                Common.initCommon();
+                NewOrder.initCommon();
                 initViewsStats();
             }
         });
         drinkSpinner.setOnSpinnerItemSelectedListener(new OnSpinnerItemSelectedListener<String>() {
             @Override
             public void onItemSelected(int i, String s) {
-                Common.drinkChosen=s;
+                newOrder.setDrinkChosen(s);
             }
         });
         return root;
@@ -276,14 +272,14 @@ public class HomeFragment extends Fragment {
         @Override
         public void onClick(View view) {
             if (((CheckBox)view).isChecked()) {
-                Common.totalPrice += 13;
-                Common.extras.add(((CheckBox) view).getText().toString());
+                newOrder.setTotalPrice(newOrder.getTotalPrice()+13);
+                newOrder.setExtras(((CheckBox) view).getText().toString());
             }
             else {
-                Common.totalPrice -= 13;
-                Common.extras.remove(((CheckBox) view).getText().toString());
+                newOrder.setTotalPrice(newOrder.getTotalPrice()-13);
+                newOrder.deleteExtra(((CheckBox) view).getText().toString());
             }
-            totalPrice.setText(getString(R.string.totalPrice)+ "" + Common.totalPrice);
+            totalPrice.setText(getString(R.string.totalPrice)+ "" + newOrder.getTotalPrice());
 
 
         }
@@ -303,59 +299,58 @@ public class HomeFragment extends Fragment {
         dialog.show();
     }
     private  void saveOrderDetails(){
-        if(Common.isSpread){
+        if(newOrder.getIsSpread()){
         for (int i=0; i<spreadChipGroup.getChildCount();i++){
             Chip chip = (Chip)spreadChipGroup.getChildAt(i);
             if (chip.isChecked()){
-                Common.spreads.add(chip.getText().toString());
+                newOrder.setSpreads(chip.getText().toString());
             }
         }
         }
         else
-            Common.spreads.add(getString(R.string.no_spread));
-        if(Common.isSalad){
+            newOrder.setSpreads(getString(R.string.no_spread));
+        if(newOrder.getIsSalad()){
         for (int i=0; i<saladChipGroup.getChildCount();i++) {
             Chip chip = (Chip) saladChipGroup.getChildAt(i);
             if (chip.isChecked()) {
-                Common.salads.add(chip.getText().toString());
+                newOrder.setSalads(chip.getText().toString());
             }
         }
         }
         else
-            Common.salads.add(getString(R.string.no_salads));
-        if (Common.drinkChosen.isEmpty())
-            Common.drinkChosen=getString(R.string.none);
+            newOrder.setSalads(getString(R.string.no_salads));
+        if (newOrder.getDrinkChosen().isEmpty())
+            newOrder.setDrinkChosen(getString(R.string.none));
 
     }
     private void moveAllDetails() {
-        if(LastOrder.isOrderComplete)
+
+        if(lastOrder.getOrderFinishState())
             clearLastOrder();
-        LastOrder.foodChosen=Common.foodChosen;
-        LastOrder.drinkChosen=Common.drinkChosen;
-        LastOrder.totalPrice=Common.totalPrice;
-        if(Common.spreads.isEmpty())
+        lastOrder.setFoodChosen(newOrder.getFoodChosen());
+        lastOrder.setDrinkChosen(newOrder.getDrinkChosen());
+        lastOrder.setTotalPrice(newOrder.getTotalPrice());
+        if(newOrder.getSpreads().isEmpty())
         {
-            Common.spreads.add(getString(R.string.no_spread));
+            newOrder.setSpreads(getString(R.string.no_spread));
         }
-        LastOrder.spreads.addAll(Common.spreads);
-        if(Common.salads.isEmpty())
+        lastOrder.setSpreads(newOrder.getSpreads());
+        if(newOrder.getSalads().isEmpty())
         {
-            Common.salads.add(getString(R.string.no_salads));
+            newOrder.setSalads(getString(R.string.no_salads));
         }
-        LastOrder.salads.addAll(Common.salads);
-        if(Common.extras.isEmpty())
+        lastOrder.setSalads(newOrder.getSalads());
+        if(newOrder.getExtras().isEmpty())
         {
-            Common.extras.add(getString(R.string.no_extras));
+            newOrder.setExtras(getString(R.string.no_extras));
         }
-        LastOrder.extras.addAll(Common.extras);
-        LastOrder.sauceNumber = Common.numOfLastSauce;
-        LastOrder.isOrderComplete =true;
+        lastOrder.setExtras(newOrder.getExtras());
+        lastOrder.setSauceNumber(newOrder.getNumOfLastSauce());
+        lastOrder.setIsOrderComplete(true);
 
         }
     private void clearLastOrder() {
-        LastOrder.spreads.clear();
-        LastOrder.salads.clear();
-        LastOrder.extras.clear();
+        lastOrder.clearLists();
     }
 
     private void initViewsStats() {
@@ -367,7 +362,7 @@ public class HomeFragment extends Fragment {
             noSpread.setChecked(true);
             editTextNumOfSauces.setText("");
             drinkSpinner.clearSelectedItem();
-            Common.initFoodChoic();
+            NewOrder.initFoodChoic();
 
 
         }

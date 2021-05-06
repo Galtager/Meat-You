@@ -14,20 +14,18 @@ import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.meatyouapp.Common.Common;
+import com.example.meatyouapp.Common.User;
 import com.google.android.material.chip.Chip;
-import com.google.android.material.chip.ChipGroup;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
     Button btnLogin,btnLanguage;
-    TextView txtSlogan;
+    User user=User.getUser();
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(Common.loggedIn==true)
-            gotoHomeActivity(Common.name, Common.address,Common.phone);
+        if(user.getLoggedIn())
+            gotoHomeActivity();
     }
 
     private void showLoginDialog() {
@@ -129,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 Toast.makeText(MainActivity.this, getString(R.string.loginSuccess), Toast.LENGTH_SHORT).show();
                 dialogInterface.dismiss();
-                Common.loggedIn=true;
+                user.setLoggedIn(true);
                 gotoHomeActivity(edt_name.getText().toString(),edt_address.getText().toString(),edt_phone.getText().toString());
             }
         });
@@ -138,9 +136,13 @@ public class MainActivity extends AppCompatActivity {
         dialog.show();
     }
     private void gotoHomeActivity(String currentName,String currentAddress,String currentPhone) {
-        Common.name = currentName;
-        Common.address=currentAddress;
-        Common.phone =currentPhone;
+        user.setName(currentName);
+        user.setAddress(currentAddress);
+        user.setPhone(currentPhone);
+        startActivity(new Intent(MainActivity.this,Home.class));
+        finish();
+    }
+    private void gotoHomeActivity(){
         startActivity(new Intent(MainActivity.this,Home.class));
         finish();
     }

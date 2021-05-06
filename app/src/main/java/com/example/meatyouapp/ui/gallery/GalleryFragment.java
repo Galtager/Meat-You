@@ -8,13 +8,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProviders;
 
-import com.example.meatyouapp.Common.Common;
 import com.example.meatyouapp.Common.LastOrder;
+import com.example.meatyouapp.Common.User;
 import com.example.meatyouapp.R;
 
 public class GalleryFragment extends Fragment {
@@ -36,24 +33,26 @@ public class GalleryFragment extends Fragment {
         TextView finalSauce = root.findViewById(R.id.finalSauce);
         TextView finalPrice = root.findViewById(R.id.finalPrice);
         TextView finalDrink = root.findViewById(R.id.finalDrink);
+        LastOrder lastOrder=LastOrder.getLastOrder();
+        User user=User.getUser();
 
-        if(!LastOrder.isOrderComplete) {
+        if(!lastOrder.getOrderFinishState()) {
             statusLinearlayout.setVisibility(View.GONE);
             orderStatusTV.setText(getString(R.string.none_ordering_meatyou));
         }
         else
         {
-            name.setText(getString(R.string.final_name)+ "" + Common.name);
-            phoneNumber.setText(getString(R.string.final_phone_number)+ "" + Common.phone);
-            address.setText(getString(R.string.final_address)+ "" + Common.address);
+            name.setText(getString(R.string.final_name)+ "" + user.getName());
+            phoneNumber.setText(getString(R.string.final_phone_number)+ "" + user.getPhone());
+            address.setText(getString(R.string.final_address)+ "" + user.getAddress());
 
-            finalFood.setText(getString(R.string.final_typeOfFood)+ " " + LastOrder.foodChosen);
-            finalSpreads.setText(getString(R.string.final_spreads)+ " " + LastOrder.spreads);
-            finalSalads.setText(getString(R.string.final_salads)+ " " + LastOrder.salads);
-            finalExtras.setText(getString(R.string.final_extras)+ " " + LastOrder.extras);
-            finalSauce.setText(LastOrder.sauceNumber + " " +getString(R.string.final_number_sauces));
-            finalPrice.setText(getString(R.string.final_price)+ " " + LastOrder.totalPrice);
-            finalDrink.setText(getString(R.string.final_drinks)+ " " + LastOrder.drinkChosen);
+            finalFood.setText(getString(R.string.final_typeOfFood)+ " " + lastOrder.getFoodChosen());
+            finalSpreads.setText(getString(R.string.final_spreads)+ " " + lastOrder.getSpreads());
+            finalSalads.setText(getString(R.string.final_salads)+ " " + lastOrder.getSalads());
+            finalExtras.setText(getString(R.string.final_extras)+ " " + lastOrder.getExtras());
+            finalSauce.setText(lastOrder.getSauceNumber() + " " +getString(R.string.final_number_sauces));
+            finalPrice.setText(getString(R.string.final_price)+ " " + lastOrder.getTotalPrice());
+            finalDrink.setText(getString(R.string.final_drinks)+ " " + lastOrder.getDrinkChosen());
         }
 
         return root;

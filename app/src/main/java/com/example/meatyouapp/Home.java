@@ -3,12 +3,9 @@ package com.example.meatyouapp;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.example.meatyouapp.Common.Common;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import com.example.meatyouapp.Common.User;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.navigation.NavController;
@@ -28,6 +25,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        User user=User.getUser();
 //       FloatingActionButton fab = findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -41,7 +39,7 @@ public class Home extends AppCompatActivity {
 
         View headerView = navigationView.getHeaderView(0);
         TextView navUsername = (TextView) headerView.findViewById(R.id.txtFullName);
-        navUsername.append(" " + Common.name);
+        navUsername.append(" " + user.getName());
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         mAppBarConfiguration = new AppBarConfiguration.Builder(
